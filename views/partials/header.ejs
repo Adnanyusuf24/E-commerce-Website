@@ -1,20 +1,139 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="/styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capalot</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" class="js-color-style" href="/css/colors/color-1.css">
 </head>
 <body>
-  <nav>
-    <h1><a href="/">Ninja Smoothies</a></h1>
-    <ul>
-      <% if (user) { %>
-        <li><a href="/logout">Log out</a></li>
-      <% } else { %>
-        <li><a href="/login">Log in</a></li>
-        <li><a href="/signup" class="btn">Sign up</a></li>
-      <% } %>
-    </ul>
-  </nav>
-  
+<header class="header" id="header">
+    <nav class="nav container">
+        <a href="/" class="nav__logo">
+            <i class="bx bxs-shopping-bags nav__logo-icon"></i> Capalot
+        </a>
+
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="/" class="nav__link active-link">Home</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/shop" class="nav__link">Shop</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/about" class="nav__link">About</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/contact" class="nav__link">Contact</a>
+                </li>
+            </ul>
+
+            <div class="nav__close" id="nav-close">
+                <i class="bx bx-x"></i>
+            </div>
+        </div>
+
+        <div class="nav__btns">
+            <div class="login__toggle" id="login-button">
+                <i class="bx bx-user"></i>
+            </div>
+
+            <div class="nav__shop" id="cart-shop">
+                <i class="bx bx-shopping-bag"></i>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="bx bx-grid-alt"></i>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="cart" id="cart">
+    <i class="bx bx-x cart__close" id="cart-close"></i>
+    <h2 class="cart__title-center">My Cart</h2>
+    <!-- Cart items dynamically inserted here -->
+</div>
+
+<script src="/js/cart.js"></script>
+
+<div class="login" id="login">
+    <i class="bx bx-x login__close" id="login-close"></i>
+    
+    <div class="login__tabs">
+        <button class="tablink active" onclick="openForm(event, 'LoginForm')">Login</button>
+        <button class="tablink" onclick="openForm(event, 'SignupForm')">Sign Up</button>
+    </div>
+
+    <div id="LoginForm" class="tabcontent" style="display: block;">
+        <h2 class="login__title-center">Login</h2>
+        <form action="/login" method="POST" class="login__form grid">
+            <div class="login__content">
+                <label for="email" class="login__label">Email</label>
+                <input type="email" name="email" class="login__input" required>
+                <div class="email error" style="color: red;"></div>
+            </div>
+
+            <div class="login__content">
+                <label for="password" class="login__label">Password</label>
+                <input type="password" name="password" class="login__input" required>
+                <div class="password error" style="color: red;"></div>
+            </div>
+
+            <button type="submit" class="button">Sign in</button>
+        </form>
+    </div>
+
+    <div id="SignupForm" class="tabcontent" style="display: none;">
+        <h2 class="login__title-center">Sign Up</h2>
+        <form action="/signup" method="POST" class="signup__form grid">
+            <div class="signup__content">
+                <label for="signupEmail" class="signup__label">Email</label>
+                <input type="email" name="email" id="signupEmail" class="signup__input" required>
+            </div>
+
+            <div class="signup__content">
+                <label for="signupPassword" class="signup__label">Password</label>
+                <input type="password" name="password" id="signupPassword" class="signup__input" required>
+            </div>
+
+            <button type="submit" class="button">Create Account</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function openForm(evt, formName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(formName).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    const loginForm = document.querySelector('.login__form');
+    const signupForm = document.querySelector('.signup__form');
+
+    // Example: Login form submission handler
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        // Login form submission logic here
+    });
+
+    // Example: Signup form submission handler
+    signupForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        // Signup form submission logic here
+    });
+</script>

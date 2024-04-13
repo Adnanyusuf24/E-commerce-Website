@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <title>Women's Clothing</title>
+</head>
+<body>
+
+<%- include('partials/header'); -%>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+
+<div class="wrap">
+    <div class="menu">
+        <div class="mini-menu">
+            <ul>
+       
+    </ul>
+        </div>
+        <div class="menu-colors menu-item">
+            <div class="header-item" >Colors</div>
+            <ul class="color-row1">
+                <li class="color-circle" style="background:#4286f4"></li>
+                <li class="color-circle" style="background:#2acc4b"></li>
+                <li class="color-circle" style="background:#343534"></li>
+                <li class="color-circle" style="background:#5f605f"></li>
+                <li class="color-circle" style="background:#929392"></li>
+            </ul>
+            <ul class="color-row2">
+                <li class="color-circle" style="background:#9e8045"></li>
+                <li class="color-circle" style="background:#d3d3d3"></li>
+                <li class="color-circle" style="background:#6b6666"></li>
+                <li class="color-circle" style="background:#999797"></li>
+                <li class="color-circle" style="background:#923476"></li>
+            </ul>
+        </div>
+        <div class="menu-size menu-item">
+            <div class="header-item" >Size</div>
+            <ul class="color-row1">
+                <li class="size-circle">XS</li>
+                    <li class="size-circle" style="background-color:#343534; color:#999">S</li>
+                    <li class="size-circle">M</li>
+                    <li class="size-circle">L</li>
+                    <li class="size-circle">X</li>
+            </ul>
+        </div>
+        <div class="menu-price menu-item">
+            <div class="header-item" >Price</div>
+            <p>
+                <!--<label for="amount">Price range:</label>-->
+                <input type="text" readonly id="amount"  style="border:0; color:#f6931f; font-weight:bold;">
+            </p>
+            <div id="slider-range"></div>
+        </div>
+        
+    </div>
+
+    <div class="items">
+        <div class="items">
+            <div data-price="290" class="item">
+              <img src="https://live.staticflickr.com/65535/53598972380_0225cb9df1_m.jpg" alt="sweater" class="img-item">
+              <div class="info">
+                <h3>Our Legacy Splash Jacquard Knit</h3>
+                <p class="description">Black Grey Plants</p>
+                <h5>$290</h5>
+              </div>
+            </div>
+            <div data-price="900" class="item">
+              <img src="capalot_tee1.png" alt="tee1" class="img-item">
+              <div class="info">
+                <h3>Our Legacy Splash Jacquard Knit</h3>
+                <p class="description">Black Grey Plants</p>
+                <h5>$900</h5>
+              </div>
+            </div>
+            <div data-price="600" class="item">
+              <img src="https://www.flickr.com/photos/200304228@N04/53598514291/in/dateposted-family/" alt="tee2" class="img-item">
+              <div class="info">
+                <h3>Our Legacy Splash Jacquard Knit</h3>
+                <p class="description">Black Grey Plants</p>
+                <h5>$600</h5>
+              </div>
+            </div>
+            <!-- Add more items here as needed, following the same pattern -->
+          </div>
+          
+ <button class="loadmore">Load More</button>
+    </div>
+</div>
+</body>
+
+
+<%- include('partials/footer'); -%>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+$(document).ready(function () {
+    $(".sub > a").click(function() {
+        var ul = $(this).next(),
+                clone = ul.clone().css({"height":"auto"}).appendTo(".mini-menu"),
+                height = ul.css("height") === "0px" ? ul[0].scrollHeight + "px" : "0px";
+        clone.remove();
+        ul.animate({"height":height});
+        return false;
+    });
+       $('.mini-menu > ul > li > a').click(function(){
+       $('.sub a').removeClass('active');
+       $(this).addClass('active');
+    }),
+       $('.sub ul li a').click(function(){
+       $('.sub ul li a').removeClass('active');
+       $(this).addClass('active');
+    });
+});
+
+$( function() {
+    $( "#slider-range" ).slider({
+      range: true,
+      min: 0,
+      max: 1000,
+      values: [ 190, 728 ],
+      slide: function( event, ui ) {
+        $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+         var mi = ui.values[0];
+              var mx = ui.values[1];
+              filterSystem(mi, mx);
+      }
+    });
+    $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+      " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+});
+
+function filterSystem(minPrice, maxPrice) {
+    $(".items div.item").hide().filter(function () {
+        var price = parseInt($(this).data("price"), 10);
+        return price >= minPrice && price <= maxPrice;
+    }).show();
+}
+</script>
+
+</body>
+</html>

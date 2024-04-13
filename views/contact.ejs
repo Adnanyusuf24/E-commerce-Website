@@ -1,0 +1,95 @@
+<%- include('partials/header') %>
+<!--=============== MAIN ===============-->
+<main class="main">
+    <!--=============== CONTACT US ===============-->
+    <section class="contact section container">
+        <h2 class="breadcrumb__title">Contact Page</h2>
+        <h3 class="breadcrumb__subtitle">Home > <span>Contact us</span></h3>
+
+        <div class="contact__container grid">
+            <div>
+                <div class="contact__information">
+                    <i class="bx bx-phone contact__icon"></i>
+                    <div>
+                        <h3 class="contact__title">Call Us</h3>
+                        <span class="contact__subtitle">083-414-9159</span>
+                    </div>
+                </div>
+
+                <div class="contact__information">
+                    <i class="bx bx-envelope contact__icon"></i>
+                    <div>
+                        <h3 class="contact__title">Email</h3>
+                        <span class="contact__subtitle">info@capalotInc.com</span>
+                    </div>
+                </div>
+
+                <div class="contact__information">
+                    <i class="bx bx-map contact__icon"></i>
+                    <div>
+                        <h3 class="contact__title">Location</h3>
+                        <span class="contact__subtitle">Dublin , Ireland</span>
+                    </div>
+                </div>
+            </div>
+
+            <form id="contactForm" class="contact__form grid">
+                <div class="contact__inputs grid">
+                    <div class="contact__content">
+                        <label for="name" class="contact__label">Name</label>
+                        <input type="text" id="name" class="contact__input">
+                    </div>
+                    <div class="contact__content">
+                        <label for="email" class="contact__label">Email</label>
+                        <input type="email" id="email" class="contact__input">
+                    </div>
+                </div>
+
+                <div class="contact__content">
+                    <label for="subject" class="contact__label">Subject</label>
+                    <input type="text" id="subject" class="contact__input">
+                </div>
+
+                <div class="contact__content">
+                    <label for="message" class="contact__label">Message</label>
+                    <textarea id="message" cols="0" rows="7" class="contact__input"></textarea>
+                </div>
+
+                <div>
+                    <button type="submit" class="button">Send Message</button>
+                </div>
+            </form>
+            </form>
+        </div>
+    </section>
+</main>
+
+<%- include('partials/footer') %>
+
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            subject: document.getElementById('subject').value,
+            message: document.getElementById('message').value
+        };
+
+        fetch('/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert('Email sent successfully'); // Ensure to use .message if your response is an object
+            location.reload(); // Refresh the page after the user presses "OK" in the alert box
+        })
+        .catch(error => {
+            alert('Error sending email, please try again'); // Updated to use .message for consistency
+        });
+    });
+</script>

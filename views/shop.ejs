@@ -1,0 +1,234 @@
+<%- include('partials/header')-%>
+    <!--=============== MAIN ===============-->
+    <main class="main">
+        <!--=============== SHOP ===============-->
+        <section class="shop section container">
+            <h2 class="breadcrumb__title">Shop Page</h2>
+            <h3 class="breadcrumb__subtitle">Home > <span>Shop</span></h3>
+
+            <div class="shop__container grid">
+                <div class="sidebar">
+                    <h3 class="filter__title">Select Filters</h3>
+                    <!-- Condition Filters -->
+                    <div class="filter__content">
+                        <h3 class="filter__subtitle">Condition</h3>
+                        <div class="filter">
+                            <input type="checkbox" class="filter-checkbox" id="new" value="New">
+                            <label for="new">New <span>(13)</span></label>
+                        </div>
+                        <div class="filter">
+                            <input type="checkbox" class="filter-checkbox" id="sale" value="Sale">
+                            <label for="sale">Sale <span>(13)</span></label>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <!-- Category Filters -->
+                    <div class="filter__content">
+                        <h3 class="filter__subtitle">Categories</h3>
+                        <div class="filter">
+                            <input type="checkbox" class="filter-checkbox" id="men" value="Men">
+                            <label for="men">Men <span>(2)</span></label>
+                        </div>
+                        <div class="filter">
+                            <input type="checkbox" class="filter-checkbox" id="women" value="Women">
+                            <label for="women">Women <span>(4)</span></label>
+                        </div>
+                        <div class="filter">
+                            <input type="checkbox" class="filter-checkbox" id="kids" value="Kids">
+                            <label for="kids">Kids <span>(6)</span></label>
+                        </div>
+                        <div class="filter">
+                            <input type="checkbox" class="filter-checkbox" id="unisex" value="Unisex">
+                            <label for="unisex">Unisex <span>(4)</span></label>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <!-- Style Filters -->
+                    <div class="filter__content">
+                        <h3 class="filter__subtitle">Styles</h3>
+                        <div class="filter">
+                            <input type="checkbox" class="filter-checkbox" id="casual" value="Casual">
+                            <label for="casual">Casual <span>(2)</span></label>
+                        </div>
+                        <div class="filter">
+                            <input type="checkbox" class="filter-checkbox" id="dressy" value="Dressy">
+                            <label for="dressy">Dressy <span>(4)</span></label>
+                        </div>
+                        <div class="filter">
+                            <input type="checkbox" class="filter-checkbox" id="girly" value="Girly">
+                            <label for="girly">Girly <span>(6)</span></label>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <!-- Sub Category Filters -->
+                    <div class="filter__content">
+                        <h3 class="filter__subtitle">Sub Categories</h3>
+                        <div class="filter">
+                            <input type="checkbox" class="filter-checkbox" id="jackets" value="Jackets">
+                            <label for="jackets">Jackets <span>(2)</span></label>
+                        </div>
+                        <div class="filter">
+                            <input type="checkbox" class="filter-checkbox" id="t-shirts" value="T-shirts">
+                            <label for="t-shirts">T-shirts <span>(4)</span></label>
+                        </div>
+                        <div class="filter">
+                            <input type="checkbox" class="filter-checkbox" id="accessories" value="Accessories">
+                            <label for="accessories">Accessories <span>(6)</span></label>
+                        </div>
+                        <div class="filter">
+                            <input type="checkbox" class="filter-checkbox" id="tracksuits" value="Tracksuits">
+                            <label for="tracksuits">Tracksuits <span>(4)</span></label>
+                        </div>
+                        <div class="filter">
+                            <input type="checkbox" class="filter-checkbox" id="coats" value="Coats">
+                            <label for="coats">Coats <span>(4)</span></label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="shop__items grid">
+                    <div class="shop__content" data-category="Women,New" data-sub-category="Jackets">
+                        <div class="shop__tag">New</div>
+                        <img src="img/product-1.png" alt="" class="shop__img">
+                        <h3 class="shop__title">Fur Jacket</h3>
+                        <span class="shop__subtitle">Women's jacket</span>
+
+                        <div class="shop__prices">
+                            <span class="shop__price">$14.99</span>
+                            <span class="shop__discounts">$29.99</span>
+                        </div>
+
+                        <a href="/details/2" class="button shop__button">
+                            <i class="bx bx-cart-alt shop__icon"></i>
+                        </a>
+                    </div>
+
+                    <div class="shop__content"data-category="Men,Sale" data-sub-category="Coats">
+                        <div class="shop__tag">Sale</div>
+                        <img src="img/product-2.png" alt="" class="shop__img">
+                        <h3 class="shop__title">Clothing Hat Coat</h3>
+                        <span class="shop__subtitle"> Men's Coat</span>
+
+                        <div class="shop__prices">
+                            <span class="shop__price">$11.99</span>
+                            <span class="shop__discounts">$21.99</span>
+                        </div>
+
+                        <a href="/details/12" class="button shop__button">
+                            <i class="bx bx-cart-alt shop__icon"></i>
+                        </a>
+                    </div>
+
+                    <div class="shop__content" data-category="Women,Sale" data-sub-category="T-shirts">
+                        <div class="shop__tag">Sale</div>
+                        <img src="img/product-3.png" alt="" class="shop__img">
+                        <h3 class="shop__title">Striped T-shirt</h3>
+                        <span class="shop__subtitle">Women's T-shirt</span>
+
+                        <div class="shop__prices">
+                            <span class="shop__price">$5.99</span>
+                            <span class="shop__discounts">$12.99</span>
+                        </div>
+
+                        <a href="/details/3" class="button shop__button">
+                            <i class="bx bx-cart-alt shop__icon"></i>
+                        </a>
+                    </div>
+
+                    <div class="shop__content" data-category="Women,New" data-sub-category="Jackets">
+                        <div class="shop__tag">New</div>
+                        <img src="img/product-4.png" alt="" class="shop__img">
+                        <h3 class="shop__title">Fleece Jacket</h3>
+                        <span class="shop__subtitle">Women's jacket</span>
+
+                        <div class="shop__prices">
+                            <span class="shop__price">$7.99</span>
+                            <span class="shop__discounts">$14.99</span>
+                        </div>
+
+                        <a href="/details/13" class="button shop__button">
+                            <i class="bx bx-cart-alt shop__icon"></i>
+                        </a>
+                    </div>
+
+                    <div class="shop__content" data-category="Men,New" data-sub-category="Jackets">
+                        <div class="shop__tag">New</div>
+                        <img src="img/product-5.png" alt="" class="shop__img">
+                        <h3 class="shop__title">Windbreaker Jacket</h3>
+                        <span class="shop__subtitle">Men's jacket</span>
+
+                        <div class="shop__prices">
+                            <span class="shop__price">$7.99</span>
+                            <span class="shop__discounts">$14.99</span>
+                        </div>
+
+                        <a href="/details/9" class="button shop__button">
+                            <i class="bx bx-cart-alt shop__icon"></i>
+                        </a>
+                    </div>
+
+                    <div class="shop__content" data-category="Men,Sale" data-sub-category="Tracksuits">
+                        <div class="shop__tag">Sale</div>
+                        <img src="img/product-6.png" alt="" class="shop__img">
+                        <h3 class="shop__title">Adidas tracksuit</h3>
+                        <span class="shop__subtitle">Men's tracksuit</span>
+
+                        <div class="shop__prices">
+                            <span class="shop__price">$14.99</span>
+                            <span class="shop__discounts">$29.99</span>
+                        </div>
+
+                        <a href="/details/4" class="button shop__button">
+                            <i class="bx bx-cart-alt shop__icon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <i class="bx bx-chevron-left pagination__icon"></i>
+
+                <span class="current">1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>&middot; &middot; &middot;</span>
+                <span>9</span>
+
+                <i class="bx bx-chevron-right pagination__icon"></i>
+            </div>
+        </section>
+    </main>
+
+<%- include('partials/footer') -%>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const filters = document.querySelectorAll(".filter-checkbox");
+    const items = document.querySelectorAll(".shop__content");
+
+    filters.forEach(filter => {
+        filter.addEventListener('change', () => {
+        console.log('Checkbox changed');
+            const activeFilters = Array.from(filters).filter(i => i.checked).map(i => i.value.trim());
+            filterItems(activeFilters);
+        });
+    });
+
+    function filterItems(activeFilters) {
+    console.log('Active Filters:', activeFilters); // Debug log
+    items.forEach(item => {
+        const itemCategories = item.dataset.category.split(',').map(cat => cat.trim());
+        const itemSubCategories = item.dataset.subCategory ? item.dataset.subCategory.split(',').map(cat => cat.trim()) : [];
+        console.log('Item Categories:', itemCategories); // Debug log
+        console.log('Item Sub-Categories:', itemSubCategories); // Debug log
+        const isMatch = activeFilters.some(filter => itemCategories.includes(filter) || itemSubCategories.includes(filter));
+        item.style.display = isMatch || activeFilters.length === 0 ? '' : 'none';
+    });
+}
+
+});
+</script>
+    

@@ -1,139 +1,262 @@
-/* google fonts */
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+/* General Base Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f8f8; /* Lighter background for a fresh look */
+  color: #333; /* Dark grey text for better readability */
+  padding-top: 70px; /* Offset for fixed navbar */
+}
 
-body{
-  margin: 20px 40px;
-  font-size: 1.2rem;
-  letter-spacing: 1px;
-  background: #fafafa;
+/* Custom Navbar Styles */
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+  background-color: #333; /* Dark background for the navbar */
+  border: none;
+  width: 100%; /* Full width navbar */
 }
-h1, h2, h3, h4, ul, li, a, p, input, label, button, div, footer{
-  margin: 0;
-  padding: 0;
-  font-family: 'Quicksand', sans-serif;
-  color: #444;
+
+/* Ensure the navbar spans the full width */
+.navbar .container, .navbar .container-fluid {
+  padding: 0; /* No padding on the sides */
+  width: 100%; /* Full width container */
 }
-ul{
-  list-style-type: none;
+
+/* Keep your logo on the extreme left */
+.navbar-header {
+  margin: 0; /* No margins on the header */
 }
-a{
+
+/* Ensure your logo fits within the navbar height */
+.navbar-brand {
+  padding: 0; /* No padding on the brand */
+  display: inline-block; /* Inline block for the brand for proper alignment */
+}
+
+.navbar-brand img {
+  height: 50px; /* Adjust height as necessary */
+  width: auto; /* Maintain aspect ratio */
+}
+
+/* Align navigation links to the right */
+.navbar-collapse {
+  padding: 0; /* No padding on the collapse */
+}
+
+/* Ensure nav items are aligned horizontally and spaced properly */
+.nav > li {
+  display: inline-block; /* Display nav items inline */
+}
+
+/* Ensure the navbar doesn’t wrap */
+.navbar-nav {
+  width: auto;
+  float: none; /* Do not float the navbar */
+  margin: 0; /* No margin to push it to a new line */
+  display: inline-block; /* Display nav items inline */
+}
+
+/* Ensure the nav takes full width */
+.navbar-nav > li {
+  float: left; /* Align nav items to the left */
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+  .navbar-header, .navbar-collapse {
+    padding: 0 15px; /* Adds padding on smaller screens */
+  }
+
+  .navbar-brand img {
+    height: 40px; /* Slightly smaller logo for smaller screens */
+  }
+
+  /* Stack the nav items vertically on smaller screens */
+  .navbar-nav {
+    display: block;
+  }
+
+  /* Full-width navbar items on smaller screens */
+  .navbar-nav > li {
+    float: none;
+  }
+}
+
+
+/* Carousel Customization */
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.5); /* More readable text against images */
+  padding: 20px;
+  border-radius: 5px; /* Soften the edges */
+}
+
+.carousel-caption h3 {
+  font-size: 2rem; /* Larger, more impactful headlines */
+  margin-bottom: 15px;
+}
+
+.carousel-caption p {
+  font-size: 1.25rem; /* Slightly larger paragraph text for clarity */
+  margin-bottom: 15px;
+}
+
+.carousel-caption .btn {
+  background-color: #f0ad4e; /* Your primary color */
+  border: none;
+  padding: 10px 20px;
+  color: #333; /* Text color */
+}
+
+.carousel-indicators li {
+  background-color: #333;
+}
+
+.carousel-indicators .active {
+  background-color: #f0ad4e;
+}
+
+/* Adjustments for Main Content */
+main {
+  background-color: #f8f8f8; /* Consistent with body background */
+  color: #333; /* Dark grey for text */
+  padding: 20px;
+}
+
+/* Custom Footer */
+footer div {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+}
+
+footer a {
+  color: #f0ad4e;
+  margin: 0 15px;
+}
+
+footer a:hover {
   text-decoration: none;
+  color: #fff;
 }
-nav{
+
+.social-icons img {
+  width: 30px;
+  margin: 0 10px;
+}
+
+/* Button Customization */
+.shop-now-btn:hover {
+  background-color: #e69627; /* Darker shade on hover */
+}
+
+/* Promotional Images Adjustments */
+.promo-images {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 120px;
-}
-nav ul{
-  display: flex;
-  align-items: center;
-}
-nav li{
-  margin-left: 20px;
-}
-nav li a{
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 0.8em;
-  display: block;
-  padding: 10px 16px;
-  letter-spacing: 2px;
-}
-.btn{
-  border-radius: 36px;
-  background: #FEE996;
-}
-form h2{
-  font-size: 2.4em;
-  font-weight: 900;
-  margin-bottom: 40px;
-}
-form{
-  width: 360px;
-  margin: 0 auto;
-  padding: 30px;
-  box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
-  border-radius: 10px;
-  background: white;
-}
-input{
-  padding: 10px 12px;
-  border-radius: 4px;
-  border: 1px solid #ddd;
-  font-size: 1em;
-  width: 100%;
-}
-label{
-  display: block;
-  margin: 20px 0 10px;
-}
-button{
-  margin-top: 30px;
-  border-radius: 36px;
-  background: #FEE996;
-  border:0;
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 0.8em;
-  display: block;
-  padding: 10px 16px;
-  letter-spacing: 2px;
-}
-.error{
-  color: #ff0099;
-  margin: 10px 2px;
-  font-size: 0.8em;
-  font-weight: bold;
-}
-header{
-  display: flex;
-  align-items: center;
-}
-header img{
-  width: 250px;
-  margin-right: 40px;
-}
-header h2{
-  font-size: 3em;
-  margin-bottom: 10px;
-}
-header h3{
-  font-size: 1.6em;
-  margin-bottom: 10px;
-  margin-left: 2px;
-  color: #999;
-}
-header .btn{
+  justify-content: center;
+  flex-wrap: wrap;
   margin-top: 20px;
-  padding: 12px 18px;
-  text-transform: uppercase;
+}
+
+.promo-image {
+  margin: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-in-out; /* Smooth transformation */
+}
+
+.promo-image:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+  .promo-image {
+    width: 100%; /* Adjust for smaller screens */
+    margin: 5px 0; /* Adjusting margin for stacked layout */
+  }
+}
+
+/* Carousel Controls Customization */
+.carousel-control.left, .carousel-control.right {
+  background-image: none; /* Remove default gradient backgrounds */
+  color: #f0ad4e; /* Use your primary color for arrows */
+}
+
+.carousel-control:hover {
+  color: #e69627; /* Darker shade on hover */
+}
+
+/* women page */
+/* Tab Links */
+.login__tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tablink {
+  background: none;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
   font-weight: bold;
-  display: inline-block;
-  font-size: 0.8em;
 }
-.recipes{
+
+.tablink:hover,
+.tablink.active {
+  background-color: #f0f0f0;
+}
+
+/* Form Styles */
+.login__form, .signup__form {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  column-gap: 30px;
-  row-gap: 80px;
-  margin: 80PX AUTO;
-  max-width: 1200px;
+  gap: 15px;
 }
-.recipe{
-  display: inline-block;
-  border-radius: 20px;
-  background: white;
-  position: relative;
+
+.login__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.login__label, .signup__label {
+  margin-bottom: 5px;
+}
+
+.login__input, .signup__input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Error Messages */
+.error {
+  font-size: 0.8rem;
+  color: #ff3860;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+/* Buttons */
+.button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.signup {
   text-align: center;
-  padding: 0 20px 30px 20px
+  margin-top: 15px;
 }
-.recipe img{
-  width: 100px;
-  margin: -30px auto 20px;
-}
-footer{
-  text-align: center;
-  margin-top: 120px;
-  color: #aaa;
+
+/* Utility */
+.hidden {
+  display: none;
 }

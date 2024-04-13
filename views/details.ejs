@@ -1,0 +1,134 @@
+<%- include('partials/header') %>
+
+<main class="main">
+    <section class="details section container">
+        <h2 class="breadcrumb__title">Details Page</h2>
+        <h3 class="breadcrumb__subtitle">Home > <span>Details</span></h3>
+
+        <div class="details__container grid">
+            <div class="product__images grid">
+                <% product.images.forEach(function(image, index) { %>
+                    <div class="product__img">
+                        <% if(index === 0) { %>
+                            <div class="details__img-tag">New</div>
+                        <% } %>
+                        <img src="/img/<%=image %>" alt="<%= product.name %>">
+                    </div>
+                <% }); %>
+            </div>
+
+            <div class="product__info">
+                <p class="details__subtitle"><%= product.category %></p>
+                <h3 class="details__title"><%= product.name %></h3>
+
+                <div class="details__prices">
+                    <span class="details__price">$<%= product.price.toFixed(2) %></span>
+                    <span class="details__discount">$<%= product.discountPrice.toFixed(2) %></span>
+                </div>
+
+                <div class="details__description">
+                    <h3 class="description__title">Product Details</h3>
+                    <div class="description__details">
+                        <p><%= product.description %></p>
+                    </div>
+                </div>
+                <a href="#" class="button" onclick="addToCart('<%= product.id %>', '<%= product.name %>', '<%= product.discountPrice %>', '<%= product.images %>'); return false;">Add to cart</a>
+                <!-- Additional details and functionalities -->
+            </div>
+        </div>
+    </section>
+
+        <!--=============== RELATED PRODUCTS ===============-->
+        <section class="related__products section">
+            <h2 class="section__title">Trending Products</h2>
+
+            <div class="new__container container">
+                <div class="swiper new-swiper">
+                    <div class="swiper-wrapper">
+                        <!--NEW CONTENT 1-->
+                        <div class="new__content swiper-slide">
+                            <div class="new__tag">New</div>
+                            <img src="/img/new-1.png" alt="" class="new__img">
+                            <h3 class="new__title">Red Trench Coat</h3>
+                            <span class="new__subtitle">Women > Jackets</span>
+
+                            <div class="new__prices">
+                                <span class="new__price">$79.99</span>
+                                <span class="new__discount">$35.9</span>
+                            </div>
+
+                            <a href="/details/7" class="button new__button">
+                                <i class="bx bx-cart-alt new__icon"></i>
+                            </a>
+                        </div>
+                        <!--NEW CONTENT 2-->
+                        <div class="new__content swiper-slide">
+                            <div class="new__tag">New</div>
+                            <img src="/img/new-2.png" alt="" class="new__img">
+                            <h3 class="new__title">Air Jordan Zip Hoodie</h3>
+                            <span class="new__subtitle">Men > Hoodies</span>
+
+                            <div class="new__prices">
+                                <span class="new__price">$79.99</span>
+                                <span class="new__discount">$39.99</span>
+                            </div>
+
+                            <a href="/details/8" class="button new__button">
+                                <i class="bx bx-cart-alt new__icon"></i>
+                            </a>
+                        </div>
+                        <!--NEW CONTENT 3-->
+                        <div class="new__content swiper-slide">
+                            <div class="new__tag">New</div>
+                            <img src="/img/new-3.png" alt="" class="new__img">
+                            <h3 class="new__title">Winter Puffer Jacket</h3>
+                            <span class="new__subtitle">Men > Jackets</span>
+
+                            <div class="new__prices">
+                                <span class="new__price">$89.99</span>
+                                <span class="new__discount">$44.99</span>
+                            </div>
+
+                            <a href="/details/6" class="button new__button">
+                                <i class="bx bx-cart-alt new__icon"></i>
+                            </a>
+                        </div>
+                        <!--NEW CONTENT 4-->
+                        <div class="new__content swiper-slide">
+                            <div class="new__tag">New</div>
+                            <img src="/img/new-4.png" alt="" class="new__img">
+                            <h3 class="new__title">Varsity Jacket</h3>
+                            <span class="new__subtitle">Men > Jackets</span>
+
+                            <div class="new__prices">
+                                <span class="new__price">$49.99</span>
+                                <span class="new__discount">$24.99</span>
+                            </div>
+
+                            <a href="/details/10" class="button new__button">
+                                <i class="bx bx-cart-alt new__icon"></i>
+                            </a>
+                        </div>
+                        <!--NEW CONTENT 5-->
+                        <div class="new__content swiper-slide">
+                            <div class="new__tag">New</div>
+                            <img src="/img/new-6.png" alt="" class="new__img">
+                            <h3 class="new__title">Nike Windbreaker</h3>
+                            <span class="new__subtitle">Men > Jackets</span>
+
+                            <div class="new__prices">
+                                <span class="new__price">$79.99</span>
+                                <span class="new__discount">$39.99</span>
+                            </div>
+
+                            <a href="/details/11" class="button new__button">
+                                <i class="bx bx-cart-alt new__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+<%- include('partials/footer') %>
